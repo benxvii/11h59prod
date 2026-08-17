@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# 11h59 PROD sàrl — landing page
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing page minimaliste, une seule route (`/`), construite avec Vite + React + TypeScript + React Router.
 
-Currently, two official plugins are available:
+## Démarrer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Photos Cloudinary
+
+Les images du hero viennent du dossier Cloudinary `11h59/landing` (cloud `duvuxd5kh`). L'API de listing de Cloudinary (`/resources`) exige une authentification `api_key` + `api_secret` : elle ne peut donc pas être appelée depuis le navigateur sans exposer ces secrets publiquement.
+
+À la place, la liste des images est générée à l'avance côté machine locale (ou CI) dans `public/images.json`, un fichier statique que la landing page se contente de lire au chargement.
+
+Pour (re)générer ce fichier après avoir ajouté/retiré des photos dans le dossier Cloudinary :
+
+```bash
+cp .env.example .env
+# renseigner CLOUDINARY_API_KEY et CLOUDINARY_API_SECRET
+# (https://console.cloudinary.com/settings/api-keys)
+
+npm run fetch:images
+```
+
+Le fichier `public/images.json` généré ne contient que des URLs publiques (`secure_url`), il peut donc être commité sans risque. Les clés API, elles, ne doivent jamais quitter le fichier `.env` local (ignoré par git).
+
+## Build
+
+```bash
+npm run build
+```

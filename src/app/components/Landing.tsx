@@ -1,20 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  CLOUDINARY_RESOURCES_URL,
   EMAIL_HREF,
   IMAGE_ROTATION_INTERVAL_MS,
+  IMAGES_MANIFEST_URL,
   PHONE_HREF,
   SITE,
 } from '../../config/site';
 import './Landing.css';
-
-interface CloudinaryResource {
-  secure_url: string;
-}
-
-interface CloudinaryResponse {
-  resources: CloudinaryResource[];
-}
 
 /** Mélange un tableau (Fisher-Yates) sans muter l'original. */
 function shuffle<T>(items: T[]): T[] {
@@ -104,13 +96,12 @@ export default function Landing() {
 
     async function loadImages() {
       try {
-        const response = await fetch(CLOUDINARY_RESOURCES_URL);
-        const data: CloudinaryResponse = await response.json();
-        const urls = (data.resources ?? []).map((res) => res.secure_url);
-        if (cancelled || urls.length === 0) return;
+        const response = await fetch(IMAGES_MANIFEST_URL);
+        const urls: string[] = await response.json();
+        if (cancelled || !Array.isArray(urls) || urls.length === 0) return;
         setImages(shuffle(urls));
       } catch (error) {
-        console.error('Impossible de charger les images Cloudinary', error);
+        console.error('Impossible de charger le manifest d\u2019images', error);
       }
     }
 

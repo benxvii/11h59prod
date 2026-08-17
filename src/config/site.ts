@@ -1,10 +1,15 @@
 // Configuration Cloudinary et informations de contact pour le site 11h59 PROD sàrl.
+import cloudinaryConfig from '../../cloudinary.config.json';
 
-export const CLOUDINARY_CLOUD_NAME = 'duvuxd5kh';
-export const CLOUDINARY_FOLDER = '11h59/landing';
-export const CLOUDINARY_MAX_RESULTS = 100;
+export const CLOUDINARY_CLOUD_NAME = cloudinaryConfig.cloudName;
+export const CLOUDINARY_FOLDER = cloudinaryConfig.folder;
 
-export const CLOUDINARY_RESOURCES_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/resources/image?prefix=${CLOUDINARY_FOLDER}&max_results=${CLOUDINARY_MAX_RESULTS}`;
+// L'API Admin Cloudinary (`/resources`) exige une authentification api_key +
+// api_secret : elle ne peut pas être appelée depuis le navigateur sans exposer
+// ces secrets publiquement. La liste des images est donc générée à l'avance
+// côté serveur par `scripts/fetch-cloudinary-images.mjs` (voir README) dans ce
+// fichier JSON statique, servi tel quel par Vite depuis `public/`.
+export const IMAGES_MANIFEST_URL = '/images.json';
 
 // Rotation des images du hero.
 export const IMAGE_ROTATION_INTERVAL_MS = 5000;
