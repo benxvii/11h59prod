@@ -47,10 +47,10 @@
 
 .landing-block {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
-  padding: 28px 16px;
+  padding: 16px 16px;
   border-top: 1px solid #e2e0d9;
 }
 
@@ -105,6 +105,6 @@
   }
 
   .landing-block {
-    padding: 20px 12px;
+    padding: 12px 12px;
   }
 }
