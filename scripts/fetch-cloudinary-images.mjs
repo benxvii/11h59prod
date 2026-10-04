@@ -53,7 +53,7 @@ async function fetchAllResources() {
         expression,
         max_results: MAX_RESULTS,
         next_cursor: nextCursor,
-        fields: ['public_id', 'display_name', 'asset_folder', 'secure_url'],
+        fields: ['public_id', 'asset_folder', 'secure_url'],
       }),
     });
 
@@ -67,11 +67,10 @@ async function fetchAllResources() {
       resources.push({
         folder: resource.asset_folder ?? FOLDER,
         url: resource.secure_url,
-        // Le "Display Name" est le champ modifié par le renommage simple dans
-        // l'interface Cloudinary (clic sur une photo → champ nom → Save).
-        // Le "Public ID" (identifiant technique de l'URL) ne change pas lors
-        // de ce renommage : on se base donc sur display_name en priorité.
-        name: resource.display_name ?? resource.public_id,
+        // Public ID : identifiant venant du nom de fichier chargé dans
+        // Cloudinary (même logique que sur karinebauzin.ch). Pour le changer,
+        // il faut éditer le Public ID de la photo (pas juste le "nom affiché").
+        name: resource.public_id,
       });
     }
     nextCursor = data.next_cursor;
