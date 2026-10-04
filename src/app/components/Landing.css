@@ -39,7 +39,10 @@
 
 .landing-info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* La colonne du logo fait 120% de la largeur du logo lui-même : les 3
+     colonnes de texte se partagent le reste, à parts égales. */
+  --logo-width: clamp(56px, 5.6vw, 88px);
+  grid-template-columns: calc(var(--logo-width) * 1.2) repeat(3, 1fr);
 }
 
 .landing-block {
@@ -49,6 +52,17 @@
   text-align: center;
   padding: 28px 16px;
   border-top: 1px solid #e2e0d9;
+}
+
+/* Logo collé à gauche (pas centré comme les autres blocs). */
+.landing-block-logo {
+  justify-content: flex-start;
+}
+
+.landing-logo {
+  display: block;
+  width: var(--logo-width);
+  height: auto;
 }
 
 /* Typographie des blocs du footer, alignée sur maud-chablais.com :
@@ -78,6 +92,10 @@
 @media (max-width: 860px) {
   .landing-photo {
     min-height: 180px;
+  }
+
+  .landing-info {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

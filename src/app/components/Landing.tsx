@@ -236,6 +236,9 @@ export default function Landing() {
       </div>
 
       <div className="landing-info">
+        <div className="landing-block landing-block-logo">
+          <img className="landing-logo" src="/logo.jpg" alt={SITE.title} />
+        </div>
         <div className="landing-block">
           <h1 className="landing-title">{SITE.title}</h1>
         </div>
