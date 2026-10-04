@@ -41,7 +41,7 @@
   display: grid;
   /* La colonne du logo fait 120% de la largeur du logo lui-même : les 3
      colonnes de texte se partagent le reste, à parts égales. */
-  --logo-width: clamp(56px, 5.6vw, 88px);
+  --logo-width: clamp(56px, 4.0vw, 88px);
   grid-template-columns: calc(var(--logo-width) * 1.2) repeat(3, 1fr);
 }
 
