@@ -70,12 +70,22 @@ function buildPairs(groups: ImageGroup[], avoidFolder: string | null = null): Pa
     const candidates = available.filter((q) => q.folder !== lastFolder);
     const pool = candidates.length > 0 ? candidates : available;
 
-    // Priorise le dossier qui a le plus de paires restantes : sinon, un gros
-    // dossier peut se retrouver "coincé" tout seul en fin de séquence et
-    // forcer une répétition qui serait évitable avec un meilleur ordre.
-    const maxRemaining = Math.max(...pool.map((q) => q.queue.length));
-    const topCandidates = pool.filter((q) => q.queue.length === maxRemaining);
-    const chosen = topCandidates[Math.floor(Math.random() * topCandidates.length)];
+    // Tirage aléatoire pondéré par le nombre de paires restantes : un dossier
+    // qui a plus de photos a plus de chances de sortir tôt (ça évite qu'un
+    // gros dossier reste "coincé" tout seul en fin de séquence, forçant une
+    // répétition), mais ce n'est jamais un maximum strict déterministe —
+    // sinon le dossier le plus fourni sortirait systématiquement en premier
+    // à chaque rechargement de page, au lieu d'un vrai ordre aléatoire.
+    const totalRemaining = pool.reduce((sum, q) => sum + q.queue.length, 0);
+    let ticket = Math.random() * totalRemaining;
+    let chosen = pool[0];
+    for (const candidate of pool) {
+      ticket -= candidate.queue.length;
+      if (ticket < 0) {
+        chosen = candidate;
+        break;
+      }
+    }
 
     const pair = chosen.queue.shift();
     if (!pair) continue;
