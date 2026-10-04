@@ -53,6 +53,7 @@ async function fetchAllResources() {
         expression,
         max_results: MAX_RESULTS,
         next_cursor: nextCursor,
+        fields: ['public_id', 'display_name', 'asset_folder', 'secure_url'],
       }),
     });
 
@@ -66,7 +67,11 @@ async function fetchAllResources() {
       resources.push({
         folder: resource.asset_folder ?? FOLDER,
         url: resource.secure_url,
-        publicId: resource.public_id,
+        // Le "Display Name" est le champ modifié par le renommage simple dans
+        // l'interface Cloudinary (clic sur une photo → champ nom → Save).
+        // Le "Public ID" (identifiant technique de l'URL) ne change pas lors
+        // de ce renommage : on se base donc sur display_name en priorité.
+        name: resource.display_name ?? resource.public_id,
       });
     }
     nextCursor = data.next_cursor;
@@ -77,7 +82,7 @@ async function fetchAllResources() {
 
 // Convention de nommage : "NNN_GA" (gauche) / "NNN_DR" (droite), NNN = numéro
 // sur 3 positions. Cloudinary ajoute souvent un suffixe aléatoire après
-// (ex. "001_GA_jnszub") : on ne regarde que le tout début du public_id.
+// (ex. "001_GA_jnszub") : on ne regarde que le tout début du nom.
 const NAME_PATTERN = /^(\d{3})_(GA|DR)(?:_|$)/i;
 
 /**
@@ -90,15 +95,15 @@ function groupByFolder(resources) {
   const order = [];
   const byFolder = new Map();
 
-  for (const { folder, url, publicId } of resources) {
+  for (const { folder, url, name } of resources) {
     if (!byFolder.has(folder)) {
       byFolder.set(folder, new Map());
       order.push(folder);
     }
 
-    const match = NAME_PATTERN.exec(publicId);
+    const match = NAME_PATTERN.exec(name);
     if (!match) {
-      console.warn(`Ignoré (ne suit pas la convention NNN_GA/NNN_DR) : ${folder}/${publicId}`);
+      console.warn(`Ignoré (ne suit pas la convention NNN_GA/NNN_DR) : ${folder}/${name}`);
       continue;
     }
 

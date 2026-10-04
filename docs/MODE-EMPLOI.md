@@ -178,7 +178,7 @@ Règle : `NNN_GA` pour la photo de gauche, `NNN_DR` pour celle de droite, où `N
 | `002_GA.jpg`   | Photo de **gauche** de la paire n°2 |
 | `002_DR.jpg`   | Photo de **droite** de la paire n°2 |
 
-Pour renommer une photo sur Cloudinary : clic sur la photo → champ **Public ID** → remplacer par `001_GA` (sans l'extension) → **Save**.
+Pour renommer une photo sur Cloudinary : clic sur la photo → champ du nom (en haut du panneau de détail) → remplacer par `001_GA` (sans l'extension) → **Save**.
 
 Points importants :
 
