@@ -12,7 +12,7 @@ export const CLOUDINARY_FOLDER = cloudinaryConfig.folder;
 export const IMAGES_MANIFEST_URL = '/images.json';
 
 // Rotation des images du hero.
-export const IMAGE_ROTATION_INTERVAL_MS = 5000;
+export const IMAGE_ROTATION_INTERVAL_MS = 8000;
 
 export const SITE = {
   title: '11h59 PROD sàrl',

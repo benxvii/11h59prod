@@ -2,6 +2,8 @@
 
 Landing page minimaliste, une seule route (`/`), construite avec Vite + React + TypeScript + React Router.
 
+Pour modifier les textes ou les photos sans coder : [docs/MODE-EMPLOI.md](docs/MODE-EMPLOI.md).
+
 ## Démarrer
 
 ```bash
