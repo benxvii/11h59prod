@@ -121,15 +121,29 @@ Photos : Cloudinary, puis régénération du manifeste (pas de sync automatique 
 
 ### Déployer du code
 
-```bash
-git add .
-git commit -m "description courte"
-git push origin main
-```
+Deux étapes distinctes :
 
-Ou demander à l'assistant : *Envoie les changements avec un message en français.*
+1. **Sauvegarder sur GitHub** (historique du code, pas le site public) :
 
-Il n'y a pas encore d'hébergement ni de nom de domaine branchés : le push met seulement le code à jour sur GitHub, pas sur un site visible publiquement. À voir avec Benoît.
+   ```bash
+   git add .
+   git commit -m "description courte"
+   git push origin main
+   ```
+
+   Ou demander à l'assistant : *Envoie les changements avec un message en français.*
+
+2. **Mettre en ligne sur 11h59.ch** (hébergement Infomaniak) :
+
+   ```bash
+   npm run deploy
+   ```
+
+   Cette commande construit le site (`npm run build`) puis envoie le résultat par FTP sur l'hébergement. Demande les accès FTP (`DEPLOY_FTP_HOST`, `DEPLOY_FTP_USER`, `DEPLOY_FTP_PASSWORD`) à renseigner une fois dans `.env` (voir `.env.example`), disponibles dans le Manager Infomaniak → Hosting → **FTP-SFTP et accès SSH**.
+
+   Ou demander à l'assistant : *Déploie les changements en production.*
+
+Les deux étapes sont indépendantes : pousser sur GitHub ne met pas le site à jour automatiquement, et inversement. Pense à faire les deux après une modification que tu veux voir en ligne.
 
 ---
 

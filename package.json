@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "fetch:images": "node --env-file=.env scripts/fetch-cloudinary-images.mjs"
+    "fetch:images": "node --env-file=.env scripts/fetch-cloudinary-images.mjs",
+    "deploy": "npm run build && node --env-file=.env scripts/deploy-ftp.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
