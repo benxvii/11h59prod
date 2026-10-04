@@ -103,7 +103,7 @@ Photos : Cloudinary, puis régénération du manifeste (pas de sync automatique 
 
 | Fichier                                | Contenu                                                    |
 | --------------------------------------- | ------------------------------------------------------------ |
-| `src/config/site.ts`                    | Titre, sous-titre, email, téléphone, config Cloudinary      |
+| `src/config/site.ts`                    | Titre, email, téléphone, config Cloudinary                 |
 | `src/app/components/Landing.tsx`        | Page d'accueil : rotation des photos, bloc contact           |
 | `cloudinary.config.json`                | Cloud name + dossier Cloudinary (partagé code + script)      |
 | `scripts/fetch-cloudinary-images.mjs`   | Génère `public/images.json` à partir de Cloudinary           |
@@ -116,7 +116,6 @@ Photos : Cloudinary, puis régénération du manifeste (pas de sync automatique 
 | Champ      | Usage                                      |
 | ----------- | --------------------------------------------- |
 | `title`     | Titre principal affiché ("11h59 PROD sàrl")   |
-| `subtitle`  | Sous-titre ("Swiss photographer")             |
 | `email`     | Email de contact (lien `mailto:` cliquable)   |
 | `phone`     | Téléphone (lien `tel:` cliquable)             |
 
@@ -141,7 +140,6 @@ Ouvrir `src/config/site.ts` (ou laisser Cursor le faire). Tout est dans l'objet 
 ```ts
 export const SITE = {
   title: '11h59 PROD sàrl',
-  subtitle: 'Swiss photographer',
   email: 'info@11h59.ch',
   phone: '+41 79 958 86 09',
 } as const;

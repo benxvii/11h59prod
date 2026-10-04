@@ -10,7 +10,7 @@
 .landing-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  gap: 0;
   flex: 1;
   min-height: 0;
 }
@@ -39,7 +39,7 @@
 
 .landing-info {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .landing-block {
@@ -51,36 +51,21 @@
   border-top: 1px solid #e2e0d9;
 }
 
-.landing-block + .landing-block {
-  border-left: 1px solid #e2e0d9;
-}
-
-/* Typographie des 4 blocs du footer, alignée sur maud-chablais.com :
-   Helvetica, gras 600, majuscules, interlettrage serré. */
+/* Typographie des blocs du footer, alignée sur maud-chablais.com :
+   Helvetica, gras 600, majuscules, interlettrage serré. Les 3 colonnes
+   partagent la même taille de police que le titre. */
 .landing-title,
-.landing-subtitle,
 .landing-contact {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
   text-transform: uppercase;
   letter-spacing: -0.01em;
-}
-
-.landing-title {
-  margin: 0;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
   color: #111;
-}
-
-.landing-subtitle {
-  margin: 0;
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-  color: #4a4844;
 }
 
 .landing-contact {
-  font-size: clamp(0.75rem, 1.3vw, 0.9rem);
-  color: #111;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
@@ -93,14 +78,6 @@
 @media (max-width: 860px) {
   .landing-photo {
     min-height: 180px;
-  }
-
-  .landing-info {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .landing-block:nth-child(3) {
-    border-left: none;
   }
 }
 

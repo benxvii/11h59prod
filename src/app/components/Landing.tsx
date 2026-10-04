@@ -240,9 +240,6 @@ export default function Landing() {
           <h1 className="landing-title">{SITE.title}</h1>
         </div>
         <div className="landing-block">
-          <p className="landing-subtitle">{SITE.subtitle}</p>
-        </div>
-        <div className="landing-block">
           <a className="landing-contact" href={EMAIL_HREF}>
             {SITE.email}
           </a>
