@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "fetch:images": "node --env-file=.env scripts/fetch-cloudinary-images.mjs",
-    "deploy": "npm run build && node --env-file=.env scripts/deploy-ftp.mjs"
+    "deploy": "npm run build && node --env-file=.env scripts/deploy-ftp.mjs",
+    "deploy:newlook-preview": "node --env-file=.env scripts/deploy-newlook-preview.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

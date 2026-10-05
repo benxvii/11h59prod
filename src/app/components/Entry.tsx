@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE } from '../../config/site';
+import { LOGO_URL, SITE } from '../../config/site';
 import './Entry.css';
 
 const SECTIONS = [
@@ -23,7 +23,7 @@ export default function Entry() {
           </Link>
         ))}
       </nav>
-      <img className="entry-logo" src="/logo.png" alt={SITE.title} />
+      <img className="entry-logo" src={LOGO_URL} alt={SITE.title} />
     </div>
   );
 }

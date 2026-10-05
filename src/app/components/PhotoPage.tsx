@@ -1,11 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  EMAIL_HREF,
-  IMAGE_ROTATION_INTERVAL_MS,
-  IMAGES_MANIFEST_URL,
-  PHONE_HREF,
-  SITE,
-} from '../../config/site';
+import { IMAGE_ROTATION_INTERVAL_MS, IMAGES_MANIFEST_URL } from '../../config/site';
 import Nav from './Nav';
 import './PhotoPage.css';
 
@@ -235,25 +229,6 @@ export default function PhotoPage() {
       <div className="photo-page-photos">
         <RotatingPhoto {...left} />
         <RotatingPhoto {...right} />
-      </div>
-
-      <div className="photo-page-info">
-        <div className="photo-page-block photo-page-block-logo">
-          <img className="photo-page-logo" src="/logo.png" alt={SITE.title} />
-        </div>
-        <div className="photo-page-block">
-          <h1 className="photo-page-title">{SITE.title}</h1>
-        </div>
-        <div className="photo-page-block">
-          <a className="photo-page-contact" href={EMAIL_HREF}>
-            {SITE.email}
-          </a>
-        </div>
-        <div className="photo-page-block">
-          <a className="photo-page-contact" href={PHONE_HREF}>
-            {SITE.phone}
-          </a>
-        </div>
       </div>
     </div>
   );

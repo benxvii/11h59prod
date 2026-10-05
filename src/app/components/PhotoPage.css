@@ -37,74 +37,14 @@
   opacity: 1;
 }
 
-.photo-page-info {
-  display: grid;
-  /* La colonne du logo fait 120% de la largeur du logo lui-même : les 3
-     colonnes de texte se partagent le reste, à parts égales. */
-  --logo-width: clamp(56px, 4.0vw, 88px);
-  grid-template-columns: calc(var(--logo-width) * 1.2) repeat(3, 1fr);
-}
-
-.photo-page-block {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-  padding: 8px 16px 12px;
-  border-top: 1px solid #e2e0d9;
-}
-
-/* Logo collé à gauche (pas centré comme les autres blocs). */
-.photo-page-block-logo {
-  justify-content: flex-start;
-}
-
-.photo-page-logo {
-  display: block;
-  width: var(--logo-width);
-  height: auto;
-}
-
-/* Typographie des blocs du footer, alignée sur maud-chablais.com :
-   Helvetica, gras 600, majuscules, interlettrage serré. Les 3 colonnes
-   partagent la même taille de police que le titre. */
-.photo-page-title,
-.photo-page-contact {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.2rem, 1.92vw, 1.5rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: #111;
-}
-
-.photo-page-contact {
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-.photo-page-contact:hover {
-  border-color: #111;
-}
-
 @media (max-width: 860px) {
   .photo-page-photo {
     min-height: 180px;
-  }
-
-  .photo-page-info {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .photo-page-photo {
     min-height: 140px;
-  }
-
-  .photo-page-block {
-    padding: 6px 12px 10px;
   }
 }

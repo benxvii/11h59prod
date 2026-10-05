@@ -9,7 +9,11 @@ export const CLOUDINARY_FOLDER = cloudinaryConfig.folder;
 // ces secrets publiquement. La liste des images est donc générée à l'avance
 // côté serveur par `scripts/fetch-cloudinary-images.mjs` (voir README) dans ce
 // fichier JSON statique, servi tel quel par Vite depuis `public/`.
-export const IMAGES_MANIFEST_URL = '/images.json';
+export const IMAGES_MANIFEST_URL = `${import.meta.env.BASE_URL}images.json`;
+
+// Chemin du logo, préfixé par BASE_URL pour rester correct en sous-dossier
+// (ex: prévisualisation sur /NewLook/).
+export const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
 
 // Rotation des images du hero.
 export const IMAGE_ROTATION_INTERVAL_MS = 8000;
