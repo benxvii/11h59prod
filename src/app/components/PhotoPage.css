@@ -1,4 +1,4 @@
-.landing {
+.photo-page {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -7,7 +7,7 @@
   color: #111;
 }
 
-.landing-photos {
+.photo-page-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
@@ -15,14 +15,14 @@
   min-height: 0;
 }
 
-.landing-photo {
+.photo-page-photo {
   position: relative;
   overflow: hidden;
   background: #d9d7d0;
   min-height: 260px;
 }
 
-.landing-photo-layer {
+.photo-page-photo-layer {
   position: absolute;
   inset: 0;
   background-position: center;
@@ -33,11 +33,11 @@
   will-change: opacity;
 }
 
-.landing-photo-layer.is-visible {
+.photo-page-photo-layer.is-visible {
   opacity: 1;
 }
 
-.landing-info {
+.photo-page-info {
   display: grid;
   /* La colonne du logo fait 120% de la largeur du logo lui-même : les 3
      colonnes de texte se partagent le reste, à parts égales. */
@@ -45,7 +45,7 @@
   grid-template-columns: calc(var(--logo-width) * 1.2) repeat(3, 1fr);
 }
 
-.landing-block {
+.photo-page-block {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -55,11 +55,11 @@
 }
 
 /* Logo collé à gauche (pas centré comme les autres blocs). */
-.landing-block-logo {
+.photo-page-block-logo {
   justify-content: flex-start;
 }
 
-.landing-logo {
+.photo-page-logo {
   display: block;
   width: var(--logo-width);
   height: auto;
@@ -68,8 +68,8 @@
 /* Typographie des blocs du footer, alignée sur maud-chablais.com :
    Helvetica, gras 600, majuscules, interlettrage serré. Les 3 colonnes
    partagent la même taille de police que le titre. */
-.landing-title,
-.landing-contact {
+.photo-page-title,
+.photo-page-contact {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
@@ -79,32 +79,32 @@
   color: #111;
 }
 
-.landing-contact {
+.photo-page-contact {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
 
-.landing-contact:hover {
+.photo-page-contact:hover {
   border-color: #111;
 }
 
 @media (max-width: 860px) {
-  .landing-photo {
+  .photo-page-photo {
     min-height: 180px;
   }
 
-  .landing-info {
+  .photo-page-info {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .landing-photo {
+  .photo-page-photo {
     min-height: 140px;
   }
 
-  .landing-block {
+  .photo-page-block {
     padding: 6px 12px 10px;
   }
 }

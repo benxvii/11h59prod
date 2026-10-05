@@ -6,7 +6,8 @@ import {
   PHONE_HREF,
   SITE,
 } from '../../config/site';
-import './Landing.css';
+import Nav from './Nav';
+import './PhotoPage.css';
 
 type Pair = [string, string];
 
@@ -186,16 +187,16 @@ function usePairedRotation(groups: ImageGroup[], intervalMs: number) {
 
 function RotatingPhoto({ urlA, urlB, active }: CrossfadeState) {
   return (
-    <div className="landing-photo">
+    <div className="photo-page-photo">
       {urlA && (
         <div
-          className={`landing-photo-layer ${active === 'a' ? 'is-visible' : ''}`}
+          className={`photo-page-photo-layer ${active === 'a' ? 'is-visible' : ''}`}
           style={{ backgroundImage: `url(${urlA})` }}
         />
       )}
       {urlB && (
         <div
-          className={`landing-photo-layer ${active === 'b' ? 'is-visible' : ''}`}
+          className={`photo-page-photo-layer ${active === 'b' ? 'is-visible' : ''}`}
           style={{ backgroundImage: `url(${urlB})` }}
         />
       )}
@@ -203,7 +204,7 @@ function RotatingPhoto({ urlA, urlB, active }: CrossfadeState) {
   );
 }
 
-export default function Landing() {
+export default function PhotoPage() {
   const [groups, setGroups] = useState<ImageGroup[]>([]);
 
   useEffect(() => {
@@ -229,26 +230,27 @@ export default function Landing() {
   const { left, right } = usePairedRotation(groups, IMAGE_ROTATION_INTERVAL_MS);
 
   return (
-    <div className="landing">
-      <div className="landing-photos">
+    <div className="photo-page">
+      <Nav />
+      <div className="photo-page-photos">
         <RotatingPhoto {...left} />
         <RotatingPhoto {...right} />
       </div>
 
-      <div className="landing-info">
-        <div className="landing-block landing-block-logo">
-          <img className="landing-logo" src="/logo.png" alt={SITE.title} />
+      <div className="photo-page-info">
+        <div className="photo-page-block photo-page-block-logo">
+          <img className="photo-page-logo" src="/logo.png" alt={SITE.title} />
         </div>
-        <div className="landing-block">
-          <h1 className="landing-title">{SITE.title}</h1>
+        <div className="photo-page-block">
+          <h1 className="photo-page-title">{SITE.title}</h1>
         </div>
-        <div className="landing-block">
-          <a className="landing-contact" href={EMAIL_HREF}>
+        <div className="photo-page-block">
+          <a className="photo-page-contact" href={EMAIL_HREF}>
             {SITE.email}
           </a>
         </div>
-        <div className="landing-block">
-          <a className="landing-contact" href={PHONE_HREF}>
+        <div className="photo-page-block">
+          <a className="photo-page-contact" href={PHONE_HREF}>
             {SITE.phone}
           </a>
         </div>

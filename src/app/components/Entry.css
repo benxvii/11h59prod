@@ -1,0 +1,40 @@
+.entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 64px);
+  width: 100%;
+  min-height: 100dvh;
+  background: #f7f6f3;
+  color: #111;
+  padding: 24px;
+}
+
+.entry-logo {
+  width: clamp(72px, 10vw, 140px);
+  height: auto;
+}
+
+.entry-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 22px);
+}
+
+.entry-link {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.entry-link:hover {
+  border-color: #111;
+}

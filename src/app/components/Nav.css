@@ -1,0 +1,67 @@
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  background: rgba(247, 246, 243, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.site-nav-home {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav-link {
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #111;
+  opacity: 0.6;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.site-nav-link:hover {
+  opacity: 1;
+}
+
+.site-nav-link.is-active {
+  opacity: 1;
+  border-color: #111;
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    padding: 10px 16px;
+  }
+
+  .site-nav-links {
+    gap: 12px;
+  }
+
+  .site-nav-link {
+    font-size: 0.7rem;
+  }
+}
