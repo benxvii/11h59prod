@@ -17,12 +17,15 @@
 }
 
 .site-nav-home {
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #111;
-  text-transform: uppercase;
+}
+
+.site-nav-logo {
+  display: block;
+  width: auto;
+  height: clamp(28px, 4vw, 36px);
 }
 
 .site-nav-links {

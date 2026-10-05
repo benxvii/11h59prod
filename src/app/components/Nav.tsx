@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { SITE } from '../../config/site';
 import './Nav.css';
 
 const LINKS = [
@@ -16,7 +17,7 @@ export default function Nav() {
   return (
     <nav className="site-nav">
       <NavLink to="/" className="site-nav-home" aria-label="Retour à l'accueil">
-        11h59
+        <img className="site-nav-logo" src="/logo.png" alt={SITE.title} />
       </NavLink>
       <div className="site-nav-links">
         {LINKS.map((link) => (
