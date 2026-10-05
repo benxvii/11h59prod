@@ -43,6 +43,17 @@
   }
 }
 
+/* Mobile : une seule photo plein écran plutôt que deux colonnes étroites. */
+@media (max-width: 700px) {
+  .photo-page-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-page-photo:nth-child(2) {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .photo-page-photo {
     min-height: 140px;
