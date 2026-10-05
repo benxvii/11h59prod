@@ -16,7 +16,6 @@ const SECTIONS = [
 export default function Entry() {
   return (
     <div className="entry">
-      <img className="entry-logo" src="/logo.png" alt={SITE.title} />
       <nav className="entry-links">
         {SECTIONS.map((section) => (
           <Link key={section.to} className="entry-link" to={section.to}>
@@ -24,6 +23,7 @@ export default function Entry() {
           </Link>
         ))}
       </nav>
+      <img className="entry-logo" src="/logo.png" alt={SITE.title} />
     </div>
   );
 }

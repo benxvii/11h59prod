@@ -1,9 +1,8 @@
 .entry {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(32px, 6vw, 64px);
   width: 100%;
   min-height: 100dvh;
   background: #f7f6f3;
@@ -12,29 +11,46 @@
 }
 
 .entry-logo {
-  width: clamp(72px, 10vw, 140px);
+  width: clamp(180px, 26vw, 420px);
   height: auto;
 }
 
 .entry-links {
+  position: absolute;
+  top: clamp(20px, 3vw, 40px);
+  right: clamp(20px, 3vw, 40px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: clamp(14px, 2.4vw, 22px);
+  gap: clamp(16px, 2.2vw, 32px);
 }
 
 .entry-link {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-size: clamp(0.85rem, 1.4vw, 1.1rem);
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   color: #111;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 .entry-link:hover {
   border-color: #111;
+}
+
+@media (max-width: 560px) {
+  .entry-links {
+    position: static;
+    margin-bottom: clamp(32px, 8vw, 56px);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .entry {
+    flex-direction: column;
+  }
 }
