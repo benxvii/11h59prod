@@ -16,7 +16,7 @@ export const IMAGE_ROTATION_INTERVAL_MS = 8000;
 
 export const SITE = {
   title: '11h59 PROD sàrl',
-  email: 'info@11h59.ch',
+  email: 'abauzin@11h59.ch',
   phone: '+41 79 958 86 09',
 } as const;
 
