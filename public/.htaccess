@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # Forcer HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://11h59.ch%{REQUEST_URI} [L,R=301]
+  # www vers non-www
+  RewriteCond %{HTTP_HOST} ^www\.11h59\.ch$ [NC]
+  RewriteRule ^ https://11h59.ch%{REQUEST_URI} [L,R=301]
+</IfModule>
