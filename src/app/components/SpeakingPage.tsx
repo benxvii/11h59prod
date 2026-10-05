@@ -16,7 +16,7 @@ const OFFERS: Offer[] = [
   },
   {
     title: 'Cours d\u2019éloquence',
-    pitch: 'Vous devez prendre la parole en public ou animer des entretiens\u00a0? Nos formations d\u2019éloquence sont faites pour vous.',
+    pitch: 'Vous devez prendre la parole en public ou animer des entretiens\u00a0? Nos formations sont faites pour vous.',
     formats: 'Cours particuliers, ateliers collectifs, formation en entreprise.',
   },
 ];
