@@ -4,4 +4,11 @@
   # www vers non-www
   RewriteCond %{HTTP_HOST} ^www\.11h59\.ch$ [NC]
   RewriteRule ^ https://11h59.ch%{REQUEST_URI} [L,R=301]
+
+  # Repli SPA (React Router) : toute URL qui n'est ni un fichier ni un
+  # dossier existant renvoie vers index.html, pour que /contact, /photo,
+  # /prise-de-parole fonctionnent en accès direct ou après rafraîchissement.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /index.html [L]
 </IfModule>

@@ -11,8 +11,7 @@ export const CLOUDINARY_FOLDER = cloudinaryConfig.folder;
 // fichier JSON statique, servi tel quel par Vite depuis `public/`.
 export const IMAGES_MANIFEST_URL = `${import.meta.env.BASE_URL}images.json`;
 
-// Chemin du logo, préfixé par BASE_URL pour rester correct en sous-dossier
-// (ex: prévisualisation sur /NewLook/).
+// Chemin du logo, préfixé par BASE_URL pour rester correct en sous-dossier.
 export const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
 
 // Rotation des images du hero.

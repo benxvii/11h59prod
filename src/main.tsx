@@ -4,11 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import routes from './app/routes';
 import './index.css';
 
-// En sous-dossier (ex: prévisualisation sur /NewLook/, build avec
-// `vite build --base=/NewLook/`), BASE_URL vaut "/NewLook/" : on le passe en
-// basename au routeur pour que les routes internes (/photo, /contact...)
-// restent relatives au sous-dossier. En prod normale (base "/"), basename
-// vaut "/" et ne change rien.
+// BASE_URL vaut "/" en production (site servi à la racine) ; on le passe en
+// basename au routeur pour que les routes restent correctes si le build est
+// un jour servi depuis un sous-dossier (`vite build --base=/dossier/`).
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 const router = createBrowserRouter(routes, { basename });
 
